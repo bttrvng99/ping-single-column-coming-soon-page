@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link
       rel="icon"
@@ -20,17 +19,6 @@
       crossorigin="anonymous"
     ></script>
     <script defer src="./index.js"></script>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <!-- <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style> -->
   </head>
   <body>
     <header>
@@ -39,11 +27,19 @@
     <main>
       <h1>We are launching <strong>soon!</strong></h1>
       <p>Subscribe and get notified</p>
-      <div class="subscribe">
-        <input type="email" name="" id="emailInput" />
-        <div id="validInfo">Please provide a valid email address</div>
-        <button id="submitBtn">Notify Me</button>
-      </div>
+      <!-- <br> -->
+      <form novalidate>
+        <input
+          type="email"
+          id="mail"
+          name="mail"
+          required
+          placeholder="Your email address..."
+        />
+        <span class="error"></span>
+        <button>Notify Me</button>
+      </form>
+      <!-- <br/> -->
       <img src="./images/illustration-dashboard.png" alt="" />
     </main>
 

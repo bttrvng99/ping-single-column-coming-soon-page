@@ -15,7 +15,8 @@ body {
 }
 
 body {
-  margin: 2rem;
+  margin: 0 2rem;
+  justify-content: space-between;
 }
 
 header {
@@ -42,34 +43,43 @@ main img {
   margin: 1rem 0;
   width: 100%;
 }
-
-.subscribe {
+main form {
   display: flex;
   flex-direction: column;
   margin: 1rem 2.5rem;
 }
-
-#emailInput {
+main form input {
+  width: 100%;
   border: 1px solid hsl(223, 100%, 88%);
   border-radius: 5rem;
-  padding: 1rem;
+  padding: 1rem 0;
+  text-indent: 1rem;
+  font-size: 20px;
 }
-
-#submitBtn {
+main form input.invalid {
+  border: 1px solid hsl(354, 100%, 66%);
+}
+main form .error {
+  color: hsl(354, 100%, 66%);
+  font-style: italic;
+  padding: 0.25rem;
+  text-indent: 1rem;
+  font-size: 20px;
+}
+main form button {
   background-color: hsl(223, 87%, 63%);
   color: white;
   border: 0 solid;
   border-radius: 5rem;
   padding: 1rem;
   cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 0.5rem 1rem hsl(223, 100%, 88%);
+  transition: 0.1s;
 }
-
-#validInfo {
-  color: hsl(354, 100%, 66%);
-  text-align: center;
-  padding-left: 1rem;
-  font-style: italic;
-  visibility: hidden;
+main form button:active {
+  background-color: hsl(223, 100%, 88%);
+  transition: 0.1s;
 }
 
 footer {
@@ -77,7 +87,7 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 footer ul {
   list-style-type: none;
@@ -88,26 +98,46 @@ footer ul {
   text-align: center;
   gap: 1rem;
 }
+footer ul li a {
+  border: 1px solid hsl(0, 0%, 59%);
+  border-radius: 100%;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+footer ul li a i {
+  color: hsl(223, 87%, 63%);
+}
+footer div {
+  color: hsl(0, 0%, 59%);
+}
 
 @media screen and (min-width: 768px) {
-  .subscribe {
+  main form {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto;
-    grid-gap: 1rem;
+    grid-column-gap: 1rem;
+    grid-row-gap: 0.25rem;
   }
-  #emailInput {
+  main form input {
     grid-column: 1/span 2;
     grid-row: 1/span 1;
   }
-  #submitBtn {
+  main form .error {
+    grid-column: 1/span 2;
+    grid-row: 2/span 1;
+    text-align: start;
+  }
+  main form button {
     grid-column: 3/span 1;
     grid-row: 1/span 1;
-  }
-  #validInfo {
-    text-align: start;
-    grid-column: 1/span 3;
-    grid-row: 2/span 1;
   }
 }
 

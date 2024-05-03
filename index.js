@@ -1,19 +1,17 @@
-// debugger;
-var emailInput = document.getElementById("emailInput");
-var visibleInfo = document.getElementById("validInfo");
-visibleInfo.style.visibility = "hidden";
-const submitBtn = document.getElementById("submitBtn");
+const form = document.querySelector("form");
+const email = document.getElementById("mail");
+const emailError = document.querySelector("span.error");
+const input = document.querySelector("input#mail")
 
-submitBtn.addEventListener('click',() => {
-    // debugger;
-    if(!validateEmail(emailInput.value)) {
-        visibleInfo.style.visibility = "visible";
-    } else visibleInfo.style.visibility = "hidden";;
+form.addEventListener("submit", (event) => {
+  if (!email.validity.valid) {
+    emailError.textContent = "You need to enter an email address.";
+    emailError.className = "error active";
+    input.className = "invalid";
+  } else {
+    emailError.textContent = "";
+    emailError.className = "error";
+    input.className = "";
+  }
+  event.preventDefault();
 });
-const validateEmail = (email) => {
-  return String(email)
-    .toLowerCase()
-    .match(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    );
-};
